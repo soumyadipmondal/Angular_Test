@@ -1,0 +1,17 @@
+<h1 [innerHTML] = "header"></h1>
+
+<main>
+    <div>
+        <label for="movieName1">Enter your Movie Name</label>
+        <input class="" type="text" id="movieName1" placeholder="Enter your movie name" name="movieName" #movieName  />
+        <button (click) = "getFilteredData(movieName)">Submit</button>
+    </div>
+    <hr>
+    <ul>
+        <li *ngFor="let item of returnData">
+            <img [src] ="item.thumbnail.path+item.thumbnail.extension" [alt]="item.name">
+            <span>Name: </span> <span [innerHTML]="item.name"></span>
+            <span>Description: </span> <span [innerHTML]="item.description!=='' ? item.description: 'No Description Provided'"></span>
+        </li>
+    </ul>
+</main>
